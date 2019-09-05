@@ -1,0 +1,15 @@
+.layout {
+  height: 100vh;
+  background: skyblue
+}
+
+.alignment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-style {
+  height: 80vh;
+  width: 45vw;
+}

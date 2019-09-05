@@ -1,0 +1,50 @@
+<div class="layout">
+  <div class="d-flex alignment">
+    <div class="card card-style">
+      <div class="card-header">
+        <h1>Register</h1>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input formControlName="firstname" type="email" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input formControlName="lastname" type="email" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
+              placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Verify Password</label>
+            <input (change)="verifyPassword()" formControlName="verifyPassword" type="password" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company</label>
+            <input formControlName="company" type="email" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary" [routerLink]="['/login']" routerLinkActive="router-link-active">
+              Back to login</button>
+          </div>
+          <div class="text-center">
+            <button type="submit" (click)="register()" class="btn btn-primary mt-5">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
