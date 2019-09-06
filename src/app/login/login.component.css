@@ -10,6 +10,6 @@
 }
 
 .card-style {
-  height: 80vh;
+  position: relative;
   width: 45vw;
 }

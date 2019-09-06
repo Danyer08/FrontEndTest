@@ -33,19 +33,10 @@ export class RegisterComponent implements OnInit {
 
   register() {
     const registerForm = this.registerForm.value;
-    console.log(registerForm);
     this.http.register(registerForm).then(response => {
-      console.log(response);
       this.router.navigate(['login']);
     }).catch(error => {
       alert(error);
     });
   }
-
-  verifyPassword() {
-    const password = this.registerForm.get('password');
-    const verifiedPassword = this.registerForm.get('verifyPassword');
-    password !== verifiedPassword ? alert('Password must be equals') : console.log('good');
-  }
-
 }

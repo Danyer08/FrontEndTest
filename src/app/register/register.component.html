@@ -7,41 +7,54 @@
       <div class="card-body">
         <form [formGroup]="registerForm">
           <div class="form-group">
-            <label for="exampleInputEmail1">First Name</label>
-            <input formControlName="firstname" type="email" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Enter email">
+            <label>First Name</label>
+            <input formControlName="firstname" class="form-control" placeholder="Enter firstname">
+            <div *ngIf="registerForm.get('firstname').dirty && registerForm.get('firstname').errors">
+              <span class="form-explain">First Name is required</span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Last Name</label>
-            <input formControlName="lastname" type="email" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Enter email">
+            <label>Last Name</label>
+            <input formControlName="lastname" class="form-control" placeholder="Enter lastname">
+            <div *ngIf="registerForm.get('lastname').dirty && registerForm.get('lastname').errors">
+              <span class="form-explain">Last Name is required</span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Enter email">
+            <label>Email address</label>
+            <input formControlName="email" class="form-control" placeholder="Enter email">
+            <div *ngIf="registerForm.get('email').dirty && registerForm.get('email').errors">
+              <span class="form-explain">Email is required</span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1"
-              placeholder="Password">
+            <label>Password</label>
+            <input formControlName="password" type="password" class="form-control" placeholder="Password">
+            <div *ngIf="registerForm.get('password').dirty && registerForm.get('password').errors">
+              <span class="form-explain">Password is required</span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Verify Password</label>
-            <input (change)="verifyPassword()" formControlName="verifyPassword" type="password" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Enter email">
+            <label>Verify Password</label>
+            <input formControlName="verifyPassword" type="password" class="form-control" placeholder="Verify Password">
+            <div *ngIf="registerForm.get('verifyPassword').dirty && registerForm.get('verifyPassword').errors">
+              <span class="form-explain">Verify Password is required</span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Company</label>
-            <input formControlName="company" type="email" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Enter email">
+            <label>Company</label>
+            <input formControlName="company" class="form-control" placeholder="Enter Company name">
+            <div *ngIf="registerForm.get('company').dirty && registerForm.get('company').errors">
+              <span class="form-explain">Company is required</span>
+            </div>
           </div>
           <div class="text-center">
-            <button class="btn btn-primary" [routerLink]="['/login']" routerLinkActive="router-link-active">
+            <button [disabled]="registerForm.invalid" type="submit" (click)="register()"
+              class="btn btn-primary btn-block mt-5">Register</button>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-default" [routerLink]="['/login']" routerLinkActive="router-link-active">
               Back to login</button>
-          </div>
-          <div class="text-center">
-            <button type="submit" (click)="register()" class="btn btn-primary mt-5">Register</button>
           </div>
         </form>
       </div>
