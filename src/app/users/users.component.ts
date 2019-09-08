@@ -8,27 +8,8 @@ import { HttpServicesService } from '../services/http-services.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: User[] = [
-    {
-      firstname: 'Marcos',
-      lastname: 'Gonzales',
-      email: 'm.gonzales@gmail.com',
-      company: 'MCTekk'
-    },
-    {
-      firstname: 'Lucas',
-      lastname: 'Martinez',
-      email: 'l.martinez@gmail.com',
-      company: 'MCTekk'
-    },
-    {
-      firstname: 'Carlos',
-      lastname: 'Guzman',
-      email: 'c.guzman@gmail.com',
-      company: 'MCTekk'
-    }
-  ];
-  headers = ['Firstname', 'Lastname', 'Email', 'Company'];
+  users: User[] = [];
+  headers = ['Firstname', 'Lastname', 'Email', 'Last Visit'];
 
   constructor(private httpService: HttpServicesService) { }
 
@@ -37,8 +18,8 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    this.httpService.getUsers().then(response => {
-      this.users = response;
+    this.httpService.getUsers().then(users => {
+      this.users = users;
     }).catch(error => {
       alert(error.message);
     });

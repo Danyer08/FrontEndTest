@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HttpServicesService } from '../services/http-services.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpServicesService,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -27,25 +29,29 @@ export class RegisterComponent implements OnInit {
       lastname: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
-      verifyPassword: ['', Validators.required],
+      verify_password: ['', Validators.required],
       company: ['', Validators.required]
     }, { validator: this.matchPassword });
   }
 
   private matchPassword(control: AbstractControl): void {
     const password: string = control.get('password').value;
-    const verifyPassword: string = control.get('verifyPassword').value;
+    const verifyPassword: string = control.get('verify_password').value;
     if (password !== verifyPassword) {
-      control.get('verifyPassword').setErrors({ matchPassword: true });
+      control.get('verify_password').setErrors({ matchPassword: true });
     } else {
-      control.get('verifyPassword').setErrors(null);
+      control.get('verify_password').setErrors(null);
     }
   }
 
   register() {
     const registerForm = this.registerForm.value;
-    this.http.register(registerForm).then(() => {
-      this.router.navigate(['account/login']);
+    this.http.register(registerForm).then(user => {
+      console.log(user);
+      this.authService.setToken(user.session);
+      setTimeout(() => {
+        this.router.navigate(['users']);
+      }, 5000);
     }).catch(error => {
       alert(error.message);
     });

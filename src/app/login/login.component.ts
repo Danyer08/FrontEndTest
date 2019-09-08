@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Login } from '../models/login';
-import { HttpServicesService } from '../services/http-services.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HttpServicesService } from '../services/http-services.service';
 
 @Component({
   selector: 'app-login',
@@ -31,9 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const loginForm: Login = this.loginForm.value;
-    this.httpServices.login(loginForm).then(response => {
-      this.authService.setToken(response);
+    const loginForm = this.loginForm.value;
+    this.httpServices.login(loginForm).then(token => {
+      this.authService.setToken(token);
       this.router.navigate(['users']);
     }).catch(error => {
       alert(error.message);

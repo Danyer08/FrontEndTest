@@ -10,25 +10,25 @@ body {
 }
 
 .header-style {
-  background: #359DC7;
+  background: #359DC7 !important;
 }
 
 .header-text {
-  color: #fff;
-  text-align: left;
-  font-size: 4em;
-  padding: 0px 10px;
+  color: #fff !important;
+  text-align: left !important;
+  font-size: 4em !important;
+  padding: 0px 10px !important;
 }
 
 .btn-custom {
-  background: white;
-  color: #359DC7;
-  border-color: #359DC7
+  background: white !important;
+  color: #359DC7 !important;
+  border-color: #359DC7 !important;
 }
 
 .btn-custom:hover {
-  background: #359DC7;
-  color: white;
+  background: #359DC7 !important;
+  color: white !important;
 }
 
 ::-webkit-scrollbar {
