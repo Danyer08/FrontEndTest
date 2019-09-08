@@ -9,8 +9,8 @@ import { AccountComponent } from './layouts/account/account.component';
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './services/auth.guard';
 import { TokenInterceptor } from './services/interceptors/token-interceptor';
-import { UsersComponent } from './users/users.component';
 
 export function jwtTokenGetter() {
   return localStorage.getItem('MCTekk_Token');
@@ -21,7 +21,6 @@ export function jwtTokenGetter() {
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UsersComponent,
     AccountComponent,
     AppLayoutComponent
   ],
@@ -37,6 +36,7 @@ export function jwtTokenGetter() {
     }),
   ],
   providers: [
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

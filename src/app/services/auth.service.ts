@@ -29,9 +29,6 @@ export class AuthService {
   }
 
   getUserProfile(): UserProfile {
-    if (localStorage.getItem(this.tokenKey) === undefined) {
-      return;
-    }
     return JSON.parse(localStorage.getItem(this.tokenKey)) as UserProfile;
   }
 }

@@ -47,11 +47,10 @@ export class RegisterComponent implements OnInit {
   register() {
     const registerForm = this.registerForm.value;
     this.http.register(registerForm).then(user => {
-      console.log(user);
       this.authService.setToken(user.session);
       setTimeout(() => {
         this.router.navigate(['users']);
-      }, 5000);
+      }, 1000);
     }).catch(error => {
       alert(error.message);
     });

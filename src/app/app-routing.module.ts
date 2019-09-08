@@ -26,17 +26,7 @@ const routes: Routes = [
     path: '',
     component: AppLayoutComponent,
     canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'users',
-        component: UsersComponent
-      },
-      {
-        path: '',
-        redirectTo: 'users',
-        pathMatch: 'full'
-      }
-    ]
+    loadChildren: './users/users.module#UsersModule'
   },
   {
     path: '**',

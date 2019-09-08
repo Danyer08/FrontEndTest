@@ -40,11 +40,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #359DC7;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgb(37, 109, 138);
 }
 
 @media only screen and (max-width: 430px) {
