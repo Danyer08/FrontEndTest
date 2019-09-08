@@ -1,0 +1,30 @@
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark nav-style fixed-position">
+  <div class='container d-flex flex-column flex-md-row justify-content-between'>
+    <a class="navbar-brand nav-item-style" href="/"> <img
+        src="https://dci.lacomarca.do/wp-content/uploads/2019/08/Mctekk-Patrocinador-Charlas-DCI.png" alt="MCTekk Logo"
+        height="80" width="100"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+        </li>
+      </ul>
+      <ul class="navbar-nav ">
+        <li class="nav-item active">
+          <a (click)="logout()" class="nav-link nav-item-style">
+            <i class="text-selected fa fa-globe mr-2">
+            </i>
+            <span class="text-selected">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="d-flex body-content p-5">
+  <router-outlet></router-outlet>
+</div>

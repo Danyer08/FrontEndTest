@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.prod';
 import { Login } from '../models/login';
 import { Register } from '../models/register';
-import { UsersComponent } from '../users/users.component';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +20,6 @@ export class HttpServicesService {
   }
 
   getUsers() {
-    return this.http.get(`${environment.baseUrl}/v1/users`).toPromise();
+    return this.http.get<[]>(`${environment.baseUrl}/v1/users`).toPromise();
   }
 }

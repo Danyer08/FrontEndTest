@@ -1,0 +1,22 @@
+.body-content {
+  background-image: url("http://www.pptback.com/uploads/abstract-white-cool-backgrounds-powerpoint.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  justify-content: center;
+}
+
+.nav-style {
+  background: #359dc7;
+  box-shadow: 5px 10px 15px 1px #030c30;
+}
+
+.text-selected:hover {
+  color: #030c30;
+}
+
+.fixed-position {
+  top: 0;
+  z-index: 1000;
+}

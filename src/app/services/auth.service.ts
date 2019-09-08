@@ -15,14 +15,14 @@ export class AuthService {
   }
 
   tokenExists() {
-    if (this.getUserProfile() === null) {
+    if (this.getUserProfile() === null || undefined) {
       return false;
     }
     return true;
   }
 
   isTokenExpired(): boolean {
-    if (this.getUserProfile() === null) {
+    if (this.getUserProfile() === null || undefined) {
       return false;
     }
     return this.jwtHelperService.isTokenExpired(this.getUserProfile().token);

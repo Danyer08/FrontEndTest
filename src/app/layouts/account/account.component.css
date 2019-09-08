@@ -1,0 +1,9 @@
+.body-content {
+  background-image: url('http://urbaninfluence.com/wp-content/uploads/2014/10/job-banner-5.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}

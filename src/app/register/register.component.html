@@ -1,63 +1,77 @@
-<div class="layout">
-  <div class="d-flex alignment">
-    <div class="card card-style">
-      <div class="card-header">
-        <h1>Register</h1>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="registerForm">
+<div class="card card-style">
+  <div class="card-header header-style">
+    <h1 class="header-text">Register</h1>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="registerForm">
+      <div class="row">
+        <div class="col body-overflow">
           <div class="form-group">
-            <label>First Name</label>
+            <label><span class="text-danger">*</span>First Name</label>
             <input formControlName="firstname" class="form-control" placeholder="Enter firstname">
             <div *ngIf="registerForm.get('firstname').dirty && registerForm.get('firstname').errors">
-              <span class="form-explain">First Name is required</span>
+              <span class="text-danger">First Name is required</span>
             </div>
           </div>
           <div class="form-group">
-            <label>Last Name</label>
+            <label><span class="text-danger">*</span>Last Name</label>
             <input formControlName="lastname" class="form-control" placeholder="Enter lastname">
             <div *ngIf="registerForm.get('lastname').dirty && registerForm.get('lastname').errors">
-              <span class="form-explain">Last Name is required</span>
+              <div *ngIf="registerForm.get('lastname').hasError('required')">
+                <span class="text-danger">Last Name is required</span>
+              </div>
             </div>
           </div>
           <div class="form-group">
-            <label>Email address</label>
+            <label><span class="text-danger">*</span>Email address</label>
             <input formControlName="email" class="form-control" placeholder="Enter email">
             <div *ngIf="registerForm.get('email').dirty && registerForm.get('email').errors">
-              <span class="form-explain">Email is required</span>
+              <span class="text-danger">Email is required</span>
             </div>
           </div>
           <div class="form-group">
-            <label>Password</label>
+            <label><span class="text-danger">*</span>Password</label>
             <input formControlName="password" type="password" class="form-control" placeholder="Password">
             <div *ngIf="registerForm.get('password').dirty && registerForm.get('password').errors">
-              <span class="form-explain">Password is required</span>
+              <div *ngIf="registerForm.get('password').hasError('pattern')">
+                <span class="text-danger">Password must be strong</span>
+              </div>
+              <div
+                *ngIf="!registerForm.get('password').hasError('pattern') && registerForm.get('password').hasError('required')">
+                <span class="text-danger">Password is required</span>
+              </div>
             </div>
           </div>
           <div class="form-group">
-            <label>Verify Password</label>
+            <label><span class="text-danger">*</span>Verify Password</label>
             <input formControlName="verifyPassword" type="password" class="form-control" placeholder="Verify Password">
             <div *ngIf="registerForm.get('verifyPassword').dirty && registerForm.get('verifyPassword').errors">
-              <span class="form-explain">Verify Password is required</span>
+              <div
+                *ngIf="registerForm.get('verifyPassword').hasError('required') && !registerForm.get('verifyPassword').hasError('matchPassword')">
+                <span class="text-danger">Verify Password is required</span>
+              </div>
+              <div *ngIf="registerForm.get('verifyPassword').hasError('matchPassword')">
+                <span class="text-danger">Password are inconsistent</span>
+              </div>
             </div>
           </div>
           <div class="form-group">
-            <label>Company</label>
+            <label><span class="text-danger">*</span>Company</label>
             <input formControlName="company" class="form-control" placeholder="Enter Company name">
             <div *ngIf="registerForm.get('company').dirty && registerForm.get('company').errors">
-              <span class="form-explain">Company is required</span>
+              <span class="text-danger">Company is required</span>
             </div>
           </div>
-          <div class="text-center">
-            <button [disabled]="registerForm.invalid" type="submit" (click)="register()"
-              class="btn btn-primary btn-block mt-5">Register</button>
-          </div>
-          <div class="text-center">
-            <button class="btn btn-default" [routerLink]="['/login']" routerLinkActive="router-link-active">
-              Back to login</button>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
+      <div class="text-center">
+        <button [disabled]="registerForm.invalid" type="submit" (click)="register()"
+          class="btn btn-custom btn-block mt-5">Register</button>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-default" [routerLink]="['/account/login']" routerLinkActive="router-link-active">
+          Back to login</button>
+      </div>
+    </form>
   </div>
 </div>

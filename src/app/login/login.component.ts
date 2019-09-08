@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       this.authService.setToken(response);
       this.router.navigate(['users']);
     }).catch(error => {
-      alert(error);
+      alert(error.message);
     });
   }
 }

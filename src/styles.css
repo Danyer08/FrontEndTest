@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+  font-family: 'Open Sans' !important
+}
+
+.card-style {
+  position: relative;
+  width: 45vw;
+}
+
+.header-style {
+  background: #359DC7;
+}
+
+.header-text {
+  color: #fff;
+  text-align: left;
+  font-size: 4em;
+  padding: 0px 10px;
+}
+
+.btn-custom {
+  background: white;
+  color: #359DC7;
+  border-color: #359DC7
+}
+
+.btn-custom:hover {
+  background: #359DC7;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 430px) {
+  .card-style {
+    width: 85vw
+  }
+
+  .header-text {
+    font-size: 3em;
+  }
+}

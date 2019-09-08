@@ -1,0 +1,9 @@
+.card-fixed {
+  width: 90vw;
+}
+
+.overflow-body {
+  position: relative;
+  max-height: 75vh;
+  overflow: auto;
+}

@@ -1,3 +1,26 @@
-<p>
-  users works!
-</p>
+<div class="col-xs-12">
+  <div class="card card-fixed">
+    <div class="card-header header-style">
+      <h1 class="header-text">Users</h1>
+    </div>
+    <div class="card-body overflow-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th *ngFor="let item of headers" scope="col">{{item}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.firstname}}</td>
+              <td>{{user.lastname}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.company}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

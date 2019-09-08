@@ -1,19 +1,4 @@
-.layout {
-  position: relative;
-  background: skyblue
-}
-
-.alignment {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-style {
-  position: relative;
-  width: 45vw;
-}
-
-.form-explain {
-  color: red;
+.body-overflow {
+  overflow: auto;
+  height: 55vh;
 }

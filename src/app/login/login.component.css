@@ -1,15 +1,7 @@
-.layout {
-  height: 100vh;
-  background: skyblue
+.link-color {
+  color: #359DC7
 }
 
-.alignment {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-style {
-  position: relative;
-  width: 45vw;
+.link-color:hover {
+  color: rgb(30, 89, 112)
 }
