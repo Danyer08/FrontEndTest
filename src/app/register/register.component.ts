@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['users']);
       }, 1000);
     }).catch(error => {
-      alert(error.message);
+      alert(error.error.errors.message);
     });
   }
 }

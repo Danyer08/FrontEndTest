@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
     this.httpService.getUsers().then(users => {
       this.users = users;
     }).catch(error => {
-      alert(error.message);
+      alert(error.error.errors.message);
     });
   }
 
